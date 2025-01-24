@@ -1,0 +1,15 @@
+services:
+  f5vpn-desktop:
+    build: 
+      context: ./f5vpn-desktop
+    container_name: f5vpn-desktop
+    privileged: true
+    volumes:
+      - ./home:/home/ubuntu
+      - ./ssh:/etc/ssh  # Persist SSH host keys
+    ports:
+      - "3389:3389"
+      - "2222:22"  # Mapping container's port 22 to host's 2222 to avoid conflicts
+
+volumes:
+  f5vpn-home:
