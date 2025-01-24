@@ -22,11 +22,15 @@ This project creates a Docker container running:
 
 1. Clone the repository:
 ```
-git clone https://github.com/your-username/f5vpn-docker-desktop.git
+git clone https://github.com/digitalis-io/docker-compose-ubuntu-desktop-f5-client.git
 cd f5vpn-docker-desktop
 ```
 
 2. Start the container:
+```
+podman compose up -d
+```
+or
 ```
 docker compose up -d
 ```
@@ -45,12 +49,13 @@ gof5 --server <VPN_SERVER> --username <USER> --passwd <PASSWORD>
 
 ### Windows Setup
 
-1. Install Docker Desktop
-   - Download from [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-   - Enable WSL 2 when prompted during installation
-   - Restart your computer
+1. Install [Podman Desktop](https://podman.io) or [Docker Desktop](https://docker.com)
 
 2. Start Container
+   ```
+   podman compose up -d
+   ```
+or
    ```
    docker compose up -d
    ```
@@ -63,9 +68,7 @@ gof5 --server <VPN_SERVER> --username <USER> --passwd <PASSWORD>
 
 ### MacOS Setup
 
-1. Install Docker Desktop
-   - Download from [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-   - Complete installation and start Docker Desktop
+1. Install [Podman Desktop](https://podman.io) or [Docker Desktop](https://docker.com)
 
 2. Install Microsoft Remote Desktop
    - Download from Mac App Store
@@ -79,19 +82,7 @@ gof5 --server <VPN_SERVER> --username <USER> --passwd <PASSWORD>
 
 ### Linux Setup
 
-1. Install Docker and Docker Compose:
-```
-# Ubuntu/Debian
-sudo apt update
-sudo apt install docker.io docker-compose
-
-# Start and enable Docker
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Add your user to docker group (logout/login required after)
-sudo usermod -aG docker $USER
-```
+1. Install Podman and Podman Compose or Docker and Docker Compose:
 
 2. Install RDP Client:
 ```
@@ -103,6 +94,10 @@ sudo dnf install remmina
 ```
 
 3. Start Container:
+```
+podman compose up -d
+```
+or
 ```
 docker compose up -d
 ```
@@ -120,22 +115,22 @@ f5vpn-docker-desktop/
 
 ### Start Container
 ```
-docker compose up -d
+podman compose up -d
 ```
 
 ### Stop Container
 ```
-docker compose down
+podman compose down
 ```
 
 ### View Logs
 ```
-docker logs f5vpn-desktop
+podman logs f5vpn-desktop
 ```
 
 ### Rebuild Container
 ```
-docker compose up -d --build
+podman compose up -d --build
 ```
 
 ## Troubleshooting
@@ -143,12 +138,12 @@ docker compose up -d --build
 ### Cannot Connect via RDP
 1. Verify container is running:
 ```
-docker ps | grep f5vpn-desktop
+podman ps | grep f5vpn-desktop
 ```
 
 2. Check container logs:
 ```
-docker logs f5vpn-desktop
+podman logs f5vpn-desktop
 ```
 
 3. Verify port availability:
@@ -185,16 +180,27 @@ git pull origin main
 
 2. Rebuild and restart:
 ```
-docker compose down
-docker compose up -d --build
+podman compose down
+podman compose up -d --build
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
 
 ## License
+This project is licensed under the Apache License 2.0 - see below for details.
+
+Copyright 2025 Digitalis.io Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+***
+This project may contain trademarks or logos for projects, products, or services. Any use of third-party trademarks or logos are subject to those third-party's policies. 

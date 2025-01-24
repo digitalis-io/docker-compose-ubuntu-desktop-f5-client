@@ -55,17 +55,17 @@ RUN wget https://github.com/kayrus/gof5/releases/download/v0.1.4/gof5_linux_amd6
     echo "[Allow Colord all Users]\nIdentity=unix-user:*\nAction=org.freedesktop.resolve1.manage\nResultAny=yes\nResultInactive=yes\nResultActive=yes" > /etc/polkit-1/localauthority/50-local.d/org.freedesktop.resolve1.pkla
 
 # Configure SSH
-RUN mkdir -p /var/run/sshd && \
-    mkdir -p /etc/ssh && \
-    echo 'Port 22' >> /etc/ssh/sshd_config && \
-    echo 'Protocol 2' >> /etc/ssh/sshd_config && \
-    echo 'PermitRootLogin no' >> /etc/ssh/sshd_config && \
-    echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && \
-    echo 'UsePAM yes' >> /etc/ssh/sshd_config && \
-    echo 'X11Forwarding yes' >> /etc/ssh/sshd_config && \
-    echo 'PrintMotd no' >> /etc/ssh/sshd_config && \
-    echo 'AcceptEnv LANG LC_*' >> /etc/ssh/sshd_config && \
-    echo 'Subsystem sftp /usr/lib/openssh/sftp-server' >> /etc/ssh/sshd_config
+# RUN mkdir -p /var/run/sshd && \
+#     mkdir -p /etc/ssh && \
+#     echo 'Port 22' >> /etc/ssh/sshd_config && \
+#     echo 'Protocol 2' >> /etc/ssh/sshd_config && \
+#     echo 'PermitRootLogin no' >> /etc/ssh/sshd_config && \
+#     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && \
+#     echo 'UsePAM yes' >> /etc/ssh/sshd_config && \
+#     echo 'X11Forwarding yes' >> /etc/ssh/sshd_config && \
+#     echo 'PrintMotd no' >> /etc/ssh/sshd_config && \
+#     echo 'AcceptEnv LANG LC_*' >> /etc/ssh/sshd_config && \
+#     echo 'Subsystem sftp /usr/lib/openssh/sftp-server' >> /etc/ssh/sshd_config
 
 EXPOSE 3389 22
 
