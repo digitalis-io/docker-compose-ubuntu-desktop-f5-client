@@ -3,7 +3,8 @@ services:
     build:
       context: .
     container_name: ubuntu-rdp
+    cap_add:
+      - CAP_AUDIT_WRITE
     ports:
       - "3389:3389"
-    # The CMD is in the Dockerfile, but you can override if needed:
-    # command: ["/usr/sbin/xrdp", "--nodaemon"]
+      - "2222:22"

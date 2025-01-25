@@ -12,6 +12,12 @@ start_xrdp_services() {
     xrdp-sesman && exec xrdp -n
 }
 
+start_ssh_services() {
+    service ssh restart
+    wait
+}
+
+
 stop_xrdp_services() {
     xrdp --kill
     xrdp-sesman --kill
@@ -33,6 +39,9 @@ usermod -aG sudo admin
 
 
 echo -e "This script is ended\n"
+
+echo -e "starting sshd services...\n"
+start_ssh_services
 
 echo -e "starting xrdp services...\n"
 
