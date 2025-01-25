@@ -1,10 +1,15 @@
 services:
-  ubuntu-rdp:
+  ubuntu-desktop-f5vpn:
     build:
       context: .
-    container_name: ubuntu-rdp
+    container_name: ubuntu-desktop-f5vpn
     cap_add:
       - CAP_AUDIT_WRITE
     ports:
       - "3389:3389"
       - "2222:22"
+    volumes:
+      - ubuntu-desktop-f5vpn-home-data:/home
+
+volumes:
+  ubuntu-desktop-f5vpn-home-data:
