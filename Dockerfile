@@ -1,6 +1,4 @@
-# https://github.com/danchitnis/container-xrdp
-
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -32,7 +30,6 @@ RUN apt-get install -y \
 COPY ubuntu-run.sh /usr/bin/
 RUN mv /usr/bin/ubuntu-run.sh /usr/bin/run.sh
 RUN chmod +x /usr/bin/run.sh
-
 
 # Docker config
 EXPOSE 3389
