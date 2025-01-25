@@ -2,6 +2,8 @@
 
 This repository contains a Docker/Podman-based setup for running an Ubuntu 22.04 desktop (XFCE) with XRDP, Visual Studio Code, Git, SSH server, and an F5 VPN client (gof5). It was built and tested on an Apple Silicon (arm64) Mac using Podman. It may or may not work on other platforms. This project credits inspiration and guidance from [danchitnis/container-xrdp](https://github.com/danchitnis/container-xrdp).
 
+![output](https://github.com/user-attachments/assets/edef236d-41eb-4460-b1c0-814fd3717f3e)
+
 ## Features
 
 - **XRDP** for remote desktop access via RDP  
