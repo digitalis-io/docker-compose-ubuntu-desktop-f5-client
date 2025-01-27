@@ -55,7 +55,7 @@ Once the desktop appears, you can launch Visual Studio Code or use Git on the co
 ## SSH Access
 
 1. **Open a terminal** on your Mac.  
-2. **Connect** via SSH (replace with `docker` if you’re using Docker):
+2. **Connect** via SSH:
    ```bash
    ssh -p 2222 admin@localhost
    ```
