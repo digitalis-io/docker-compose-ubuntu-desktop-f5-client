@@ -37,7 +37,9 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
     sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list' && \
     rm microsoft.gpg && \
     apt-get update && \
-    apt-get install -y code
+    apt-get install -y code && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt -y install ./google-chrome-stable_current_amd64.deb
 
 # 5. Install gof5 (F5 VPN client)
 RUN wget https://github.com/kayrus/gof5/releases/download/v0.1.4/gof5_linux_amd64 && \
