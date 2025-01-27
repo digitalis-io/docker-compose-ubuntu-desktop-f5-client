@@ -4,6 +4,10 @@ This repository contains a Docker/Podman-based setup for running an Ubuntu 22.04
 
 ![output](https://github.com/user-attachments/assets/edef236d-41eb-4460-b1c0-814fd3717f3e)
 
+## Credits
+
+- **XRDP setup** based on ideas from [danchitnis/container-xrdp](https://github.com/danchitnis/container-xrdp).
+
 ## Features
 
 - **XRDP** for remote desktop access via RDP  
@@ -69,10 +73,6 @@ The open-source F5 VPN client, **gof5**, is installed at `/usr/local/bin/gof5`.
    gof5 --server <YOUR_F5_SERVER> --username <YOUR_USERNAME> --passwd <YOUR_PASSWORD>
    ```
 2. For more info and advanced usage, see the official [gof5 documentation](https://github.com/kayrus/gof5).
-
-## Credits
-
-- **XRDP setup** based in part on ideas from [danchitnis/container-xrdp](https://github.com/danchitnis/container-xrdp).
 
 ## Caveats
 
