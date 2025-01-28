@@ -1,5 +1,9 @@
 #!/bin/bash
 
+RDP_GID=${RDP_GID:-9999}
+RDP_UID=${RDP_UID:-9999}
+RDP_USER=${RDP_USER:-admin}
+RDP_PASSWORD=${RDP_USER:-admin}
 
 start_xrdp_services() {
     # Preventing xrdp startup failure
@@ -28,14 +32,14 @@ stop_xrdp_services() {
 echo Entryponit script is Running...
 echo
 
-addgroup admin
-echo "username is admin"
-useradd -m -s /bin/bash -g admin admin
+addgroup --gid 9999 $RDP_USER
+echo "username is $RDP_USER"
+useradd -m -u 9999 -s /bin/bash -g $RDP_USER $RDP_USER
 wait
 #getent passwd | grep foo
-echo admin:admin | chpasswd 
+echo ${RDP_USER}:${RDP_PASSWORD} | chpasswd 
 wait
-usermod -aG sudo admin
+usermod -aG sudo $RDP_USER
 
 
 echo -e "This script is ended\n"
