@@ -5,6 +5,7 @@ services:
     container_name: ubuntu-desktop-f5vpn
     cap_add:
       - CAP_AUDIT_WRITE
+      - NET_ADMIN
     ports:
       - "3389:3389"
       - "2222:22"

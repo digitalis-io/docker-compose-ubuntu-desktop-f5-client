@@ -25,7 +25,12 @@ RUN apt-get install -y \
     software-properties-common \
     ca-certificates \
     gnupg2 \
-    apt-transport-https
+    apt-transport-https \
+    libcap2-bin \
+    net-tools \
+    iproute2 \
+    bzip2 \
+    libxslt1.1
 
 # 3. Remove unneeded packages
 RUN apt remove -y light-locker xscreensaver || true && \
@@ -39,7 +44,8 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
     apt-get update && \
     apt-get install -y code && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    apt -y install ./google-chrome-stable_current_amd64.deb
+    apt -y install ./google-chrome-stable_current_amd64.deb && \
+    wget "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-GB" -O - | tar jxf - -C /opt
 
 # 5. Install gof5 (F5 VPN client)
 RUN wget https://github.com/kayrus/gof5/releases/download/v0.1.4/gof5_linux_amd64 && \
@@ -47,7 +53,6 @@ RUN wget https://github.com/kayrus/gof5/releases/download/v0.1.4/gof5_linux_amd6
     mv gof5_linux_amd64 /usr/local/bin/gof5
 
 # 6. (Optional) Set capabilities for gof5
-RUN apt-get update && apt-get install -y libcap2-bin && rm -rf /var/lib/apt/lists/*
 RUN setcap 'cap_net_admin,cap_net_bind_service+ep' /usr/local/bin/gof5
 
 # 7. Clean up apt caches
